@@ -1,6 +1,7 @@
 name: Node.js CI
 
 on: repository_dispatch
+  types: [update-data]
 
 jobs:
   build:
