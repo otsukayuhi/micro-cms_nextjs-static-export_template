@@ -1,7 +1,8 @@
-name: Node.js CI
+name: Update Data CI
 
-on: repository_dispatch
-  types: [update-data]
+on:
+  repository_dispatch:
+    types: [update-data]
 
 jobs:
   build:
@@ -10,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [10.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -18,7 +19,14 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - run: git config --global user.email "github-actions@example.com"
+    - run: git config --global user.name "github-actions"
+    - run: git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
+    - run: git pull github ${GITHUB_REF} --ff-only
     - run: npm ci
     - run: npm run update-data
       env:
-        CI: true
+        X_API_KEY: ${{ secrets.X_API_KEY }}
+    - run: git add .
+    - run: git commit -m "update data"
+    - run: git push origin HEAD
