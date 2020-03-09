@@ -2,21 +2,29 @@ import React from 'react';
 import { createStore } from 'redux';
 import { Provider, connect } from 'react-redux';
 import { increment, decrement } from './actions';
-import { myReducer } from './reducers';
+import { myReducer, InitialStateTypes } from './reducers';
 import { Count } from './doms';
 
+/**
+ * 第2引数で initialState を上書きできる
+ * -> initialState は Reducer にある
+ *
+ * const store = createStore(myReducer, {count: 1});
+ */
 const store = createStore(myReducer);
 
-const mapStateToProps = state => ({
+// コンポーネントにPropsとして渡すStore
+const mapStateToProps = (state: InitialStateTypes) => ({
   count: state.count,
 });
 
+// コンポーネントにPropsとして渡すdispatch(actions())
 const mapDispatchToProps = dispatch => ({
-  increment: num => {
-    dispatch(increment(num));
+  increment: payload => {
+    dispatch(increment(payload));
   },
-  decrement: num => {
-    dispatch(decrement(num));
+  decrement: payload => {
+    dispatch(decrement(payload));
   },
 });
 

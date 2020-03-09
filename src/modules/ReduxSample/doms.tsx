@@ -2,8 +2,8 @@ import React from 'react';
 
 export type CountProps = {
   count: number;
-  increment: (number) => void;
-  decrement: (number) => void;
+  increment: (payload: number) => void;
+  decrement: (payload: number) => void;
 };
 
 export const Count: React.FC<CountProps> = ({
