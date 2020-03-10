@@ -3,8 +3,8 @@ import { NextPage } from 'next';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import { myReducer } from 'modules/ReduxSample/reducers';
-import ReduxSampleContainer from 'modules/ReduxSample/container';
+import { myReducer } from 'ducks/count/reducers';
+import ReduxSampleContainer from 'containers/countContainer';
 
 /**
  * 第2引数で initialState を上書きできる
