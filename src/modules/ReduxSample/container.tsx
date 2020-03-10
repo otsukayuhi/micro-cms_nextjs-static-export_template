@@ -1,22 +1,21 @@
 import React from 'react';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import { myReducer } from './reducers';
-import { Count } from './doms';
-
-/**
- * 第2引数で initialState を上書きできる
- * -> initialState は Reducer にある
- *
- * const store = createStore(myReducer, {count: 1});
- */
-const store = createStore(myReducer);
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, decrement } from './actions';
+import { Button, Count } from './doms';
 
 const CountContainer: React.FC = () => {
+  const count = useSelector(state => state.count);
+  const dispatch = useDispatch();
+
+  const onIncrement = () => dispatch(increment(1));
+  const onDecrement = () => dispatch(decrement(2));
+
   return (
-    <Provider store={store}>
-      <Count />
-    </Provider>
+    <>
+      <Count count={count} />
+      <Button onClick={onIncrement} value="Increment" />
+      <Button onClick={onDecrement} value="Decrement" />
+    </>
   );
 };
 
