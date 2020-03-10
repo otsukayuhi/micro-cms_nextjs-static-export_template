@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { NextPage } from 'next';
-import AboutContainer from 'modules/About/container';
+import AboutContainer from 'containers/aboutContainer';
 import data from '../../data/page_data_about.json';
 
 const Page: NextPage = () => {

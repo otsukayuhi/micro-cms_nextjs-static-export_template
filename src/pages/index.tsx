@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { NextPage } from 'next';
-import TopContainer from 'modules/Top/container';
+import TopContainer from 'containers/topContainer';
 import data from '../../data/page_data_top.json';
 
 const Page: NextPage = () => {
