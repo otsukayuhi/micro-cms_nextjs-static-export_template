@@ -1,8 +1,7 @@
 import React from 'react';
 import { createStore } from 'redux';
-import { Provider, connect } from 'react-redux';
-import { increment, decrement } from './actions';
-import { myReducer, InitialStateTypes } from './reducers';
+import { Provider } from 'react-redux';
+import { myReducer } from './reducers';
 import { Count } from './doms';
 
 /**
@@ -13,27 +12,10 @@ import { Count } from './doms';
  */
 const store = createStore(myReducer);
 
-// コンポーネントにPropsとして渡すStore
-const mapStateToProps = (state: InitialStateTypes) => ({
-  count: state.count,
-});
-
-// コンポーネントにPropsとして渡すdispatch(actions())
-const mapDispatchToProps = dispatch => ({
-  increment: payload => {
-    dispatch(increment(payload));
-  },
-  decrement: payload => {
-    dispatch(decrement(payload));
-  },
-});
-
-const ConnectCount = connect(mapStateToProps, mapDispatchToProps)(Count);
-
 const CountContainer: React.FC = () => {
   return (
     <Provider store={store}>
-      <ConnectCount />
+      <Count />
     </Provider>
   );
 };
