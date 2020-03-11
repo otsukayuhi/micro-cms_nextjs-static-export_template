@@ -6,27 +6,22 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { PageTypes, LinkTypes } from 'types/data';
-import { HeadingStyle, LeadStyle, LinkListStyle } from './styles';
+import { PageTypes } from 'types/data';
+import { HeadingStyle, LeadStyle } from 'components/top/styles';
+import CountContainer from 'containers/countContainer';
 
-export type TopContainerProps = {
-  links: LinkTypes[];
-} & PageTypes;
+export type TopContainerProps = {} & PageTypes;
 
 // Container層
-const TopContainer: React.FC<TopContainerProps> = ({
-  title,
-  description,
-  links,
-}) => {
+const TopContainer: React.FC<TopContainerProps> = ({ title, description }) => {
   return (
     <>
       <HeadingStyle text={title} />
       <LeadStyle text={description} />
-      <Link href="/">
-        <a>Top</a>
+      <Link href="/about">
+        <a>About</a>
       </Link>
-      <LinkListStyle linkList={links} />
+      <CountContainer />
     </>
   );
 };
