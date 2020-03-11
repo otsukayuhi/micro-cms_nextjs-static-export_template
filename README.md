@@ -23,9 +23,10 @@
       - `container.tsx`
       - スタイルコンポーネントにデータを渡す
       - ロジックが必要な場合は、ここに記述する
-- `ducks層`
-  - ducks層
+- `store層`
+  - store層
     - ReduxのActionsとReducersを置く
+    - 上記を`index.tsx`でまとめて、`store`とする
 - `pages/`
   - Next.jsのルーティング対応
 - `style/`
