@@ -7,6 +7,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { PageTypes, LinkTypes } from 'types/data';
+import CountContainer from 'containers/countContainer';
 import {
   HeadingStyle,
   LeadStyle,
@@ -31,6 +32,7 @@ const TopContainer: React.FC<TopContainerProps> = ({
         <a>Top</a>
       </Link>
       <LinkListStyle linkList={links} />
+      <CountContainer />
     </>
   );
 };

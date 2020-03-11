@@ -1,7 +1,7 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = () => {
-  const staticExport = process.env.NODE_ENV === 'static-export';
+  const production = process.env.NODE_ENV === 'production';
   return {
     webpack: config => {
       config.module.rules.push({
@@ -22,6 +22,6 @@ module.exports = () => {
 
       return config;
     },
-    exportTrailingSlash: staticExport,
+    exportTrailingSlash: production,
   };
 };

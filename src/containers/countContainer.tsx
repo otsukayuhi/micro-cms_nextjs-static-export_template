@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement } from 'ducks/count/actions';
+import { increment, decrement } from 'store/count/actions';
 import { Button, Count } from 'components/count/doms';
 
 const CountContainer: React.FC = () => {
-  const count = useSelector(state => state.count);
+  const count = useSelector(state => state.count.count);
   const dispatch = useDispatch();
 
   const onIncrement = () => dispatch(increment(1));

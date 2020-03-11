@@ -1,16 +1,16 @@
 import { INCREMENT, DECREMENT } from './actions';
 
-export type InitialStateTypes = {
+export type countStateTypes = {
   count: number;
 };
 
 // 初期値
-const initialState = {
+export const countState = {
   count: 0,
 };
 
 // reducer
-export const myReducer = (state: InitialStateTypes = initialState, action) => {
+const countReducer = (state: countStateTypes = countState, action) => {
   switch (action.type) {
     case INCREMENT:
       return {
@@ -26,3 +26,5 @@ export const myReducer = (state: InitialStateTypes = initialState, action) => {
       return state;
   }
 };
+
+export default countReducer;
