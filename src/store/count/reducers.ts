@@ -5,7 +5,7 @@ export type countStateTypes = {
 };
 
 // 初期値
-export const countState = {
+const countState: countStateTypes = {
   count: 0,
 };
 
