@@ -1,10 +1,19 @@
 import React from 'react';
 import Head from 'next/head';
-import { NextPage } from 'next';
+import { NextPage, GetStaticProps } from 'next';
 import AboutContainer from 'containers/aboutContainer';
-import data from '../../data/page_data_about.json';
+import { getData } from 'gateways/getData';
+import { PageTypes, LinkTypes } from 'types/data';
 
-const Page: NextPage = () => {
+type LinksProps = {
+  links: LinkTypes[];
+};
+
+type PageProps = {
+  data: PageTypes & LinksProps;
+};
+
+const Page: NextPage<PageProps> = ({ data }) => {
   const { title, description, links } = data;
 
   return (
@@ -16,6 +25,14 @@ const Page: NextPage = () => {
       <AboutContainer {...{ title, description, links }} />
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const data = await getData('page_data_about');
+
+  return {
+    props: { data },
+  };
 };
 
 export default Page;
