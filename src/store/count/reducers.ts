@@ -10,7 +10,7 @@ const countState: countStateTypes = {
 };
 
 // reducer
-const countReducer = (state: countStateTypes = countState, action) => {
+export const countReducer = (state: countStateTypes = countState, action) => {
   switch (action.type) {
     case INCREMENT:
       return {
@@ -26,5 +26,3 @@ const countReducer = (state: countStateTypes = countState, action) => {
       return state;
   }
 };
-
-export default countReducer;

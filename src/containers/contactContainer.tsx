@@ -6,9 +6,9 @@ const CountContainer: React.FC = () => {
   const data = useSelector(state => state.contact);
   const dispatch = useDispatch();
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState(data.name);
+  const [email, setEmail] = useState(data.email);
+  const [message, setMessage] = useState(data.message);
 
   return (
     <>

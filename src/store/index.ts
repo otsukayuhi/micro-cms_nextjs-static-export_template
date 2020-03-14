@@ -1,10 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import count from 'store/count/reducers';
+import { countReducer } from 'store/count/reducers';
 import { contactReducer } from 'store/contact/reducers';
 
 const rootReducer = combineReducers({
-  count,
+  count: countReducer,
   contact: contactReducer,
 });
 
@@ -16,6 +16,5 @@ const bindMiddleware = middleware => {
   return applyMiddleware(...middleware);
 };
 
-const initStore = () => createStore(rootReducer, bindMiddleware([thunk]));
-
-export default initStore;
+export const configureStore = () =>
+  createStore(rootReducer, bindMiddleware([thunk]));
