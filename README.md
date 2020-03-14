@@ -23,7 +23,10 @@
       - `container.tsx`
       - スタイルコンポーネントにデータを渡す
       - ロジックが必要な場合は、ここに記述する
-- `store層`
+- `gateways/`
+  - Gateway層
+    - APIを叩いたりする層
+- `store/`
   - store層
     - ReduxのActionsとReducersを置く
     - 上記を`index.tsx`でまとめて、`store`とする
@@ -34,12 +37,11 @@
     - リセットCSSを補填するCSS
 - `types/`
   - CMSで取得したデータ関連の型がメイン
-- `utils`
-  - 共通の関数とかを置く
 
-### data/
-- microCMSで取得したデータをjsonにして置いておく
-  - 各ページのデータは基本microCMS管理するつもり
+### 環境変数
+`.env.sample`の`.sample`部分を削除し、以下の情報を入力
 
-### functions/
-- CIとかで事前に実行しておきたい関数とかを置いておく
+```
+X_API_KEY={microCMSのAPIキー}
+API_URL={APIのURL}
+```
