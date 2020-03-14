@@ -1,8 +1,14 @@
+require('dotenv').config();
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = () => {
   const production = process.env.NODE_ENV === 'production';
+
   return {
+    env: {
+      X_API_KEY: process.env.X_API_KEY,
+      API_URL: process.env.API_URL,
+    },
     webpack: config => {
       config.module.rules.push({
         test: [/\.json$/],

@@ -1,10 +1,16 @@
 import React from 'react';
 import Head from 'next/head';
-import { NextPage } from 'next';
+import { NextPage, GetStaticProps } from 'next';
 import TopContainer from 'containers/topContainer';
-import data from '../../data/page_data_top.json';
+import { getData } from 'gateways/getData';
+import { PageTypes } from 'types/data';
 
-const Page: NextPage = () => {
+type PageProps = {
+  data: PageTypes;
+};
+
+const Page: NextPage<PageProps> = ({ data }) => {
+  if (!data) return <div>404</div>;
   const { title, description } = data;
 
   return (
@@ -16,6 +22,14 @@ const Page: NextPage = () => {
       <TopContainer {...{ title, description }} />
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const data = await getData('page_data_top');
+
+  return {
+    props: { data },
+  };
 };
 
 export default Page;
