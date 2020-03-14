@@ -1,20 +1,7 @@
-import axios from 'axios';
+import { postContact } from 'gateways/postContact';
 
 export const CONTACT = 'CONTACT';
 export const POST_DATA = 'POST_DATA';
-
-const defaultData = {
-  subject: 'お問い合わせ',
-  honeypot: '',
-  replyTo: process.env.MY_MAIL,
-  accessKey: process.env.MAIL_KEY,
-};
-const url = 'https://api.staticforms.xyz/submit';
-const options = {
-  headers: {
-    'Content-Type': 'application/json',
-  },
-};
 
 export const postData = contact => ({
   type: POST_DATA,
@@ -22,13 +9,9 @@ export const postData = contact => ({
 });
 
 export const contactAction = contact => {
-  const postState = { ...defaultData, ...contact };
-  return dispatch => {
+  return async dispatch => {
     dispatch({ type: CONTACT });
-    axios.post(url, JSON.stringify(postState), options).then(res => {
-      const status = res.status;
-      const data = { ...contact, status };
-      dispatch(postData(data));
-    });
+    const data = await postContact(contact);
+    dispatch(postData(data));
   };
 };
