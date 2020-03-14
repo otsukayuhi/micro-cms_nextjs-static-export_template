@@ -10,7 +10,6 @@ type PageProps = {
 };
 
 const Page: NextPage<PageProps> = ({ data }) => {
-  if (!data) return <div>404</div>;
   const { title, description } = data;
 
   return (

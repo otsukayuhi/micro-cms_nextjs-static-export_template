@@ -10,7 +10,7 @@ import { PageTypes } from 'types/data';
 import { HeadingStyle, LeadStyle } from 'components/top/styles';
 import CountContainer from 'containers/countContainer';
 
-export type TopContainerProps = {} & PageTypes;
+export type TopContainerProps = PageTypes;
 
 // Container層
 const TopContainer: React.FC<TopContainerProps> = ({ title, description }) => {
