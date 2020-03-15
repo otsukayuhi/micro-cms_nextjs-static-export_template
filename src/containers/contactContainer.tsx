@@ -1,55 +1,49 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useForm } from 'react-hook-form';
 import { contactAction } from 'store/contact/actions';
 
 const CountContainer: React.FC = () => {
-  const data = useSelector(state => state.contact);
   const dispatch = useDispatch();
-
-  const [name, setName] = useState(data.name);
-  const [email, setEmail] = useState(data.email);
-  const [message, setMessage] = useState(data.message);
+  const { register, handleSubmit, errors } = useForm();
+  const onSubmit = data => dispatch(contactAction(data));
 
   return (
-    <>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div>
+        <div>お名前</div>
         <input
           type="text"
-          value={name}
-          onChange={e => setName(e.target.value)}
-          placeholder="なんしか太郎"
+          name="name"
+          placeholder="お名前"
+          ref={register({ required: true })}
         />
+        {errors.name && <div>お名前は必須です。</div>}
       </div>
+
       <div>
+        <div>メールアドレス</div>
         <input
           type="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          placeholder="taro@example.com"
+          name="email"
+          placeholder="mail@example.com"
+          ref={register({ required: true })}
         />
+        {errors.email && <div>メールアドレスは必須です</div>}
       </div>
+
       <div>
+        <div>お問い合わせ内容</div>
         <textarea
-          value={message}
-          onChange={e => setMessage(e.target.value)}
-          placeholder="メッセージをどうぞ"
+          name="message"
+          placeholder="hoge"
+          ref={register({ required: true })}
         />
+        {errors.message && <div>お問い合わせ内容は必須です</div>}
       </div>
-      <div>{data.status}</div>
-      <input
-        type="button"
-        onClick={() =>
-          dispatch(
-            contactAction({
-              name,
-              email,
-              message,
-            }),
-          )
-        }
-        value={'お問い合わせ送信'}
-      />
-    </>
+
+      <button type="submit">お問い合わせ送信</button>
+    </form>
   );
 };
 
