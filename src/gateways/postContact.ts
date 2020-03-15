@@ -6,27 +6,36 @@
 //     'Content-Type': 'application/json',
 //   },
 // };
-// const defaultData = {
-//   subject: 'お問い合わせ',
-//   honeypot: '',
-//   replyTo: process.env.MY_MAIL,
-//   accessKey: process.env.MAIL_KEY,
-// };
 
-// export const postContact = async contact => {
-//   const postData = { ...defaultData, ...contact };
+// export const postContact = async contactData => {
+//   const { name, email, message } = contactData;
+//   const defaultData = {
+//     subject: `${name}様より、お問い合わせです。`,
+//     honeypot: '',
+//     replyTo: process.env.MY_MAIL,
+//     accessKey: process.env.MAIL_KEY,
+//   };
+//   const postData = { ...defaultData, name, email, message };
 //   const res = await axios.post(url, JSON.stringify(postData), options);
-//   const status = res.status;
-//   const data = { ...contact, status };
+//   const status = res?.status;
+//   const data = { ...contactData, status };
 //   return data;
 // };
 
-export const postContact = async contact => {
-  const status = 200;
-  return await new Promise(resolve => {
+export const postContact = async contactData => {
+  const { name, email, message } = contactData;
+  const defaultData = {
+    subject: `${name}様より、お問い合わせです。`,
+    honeypot: '',
+    replyTo: process.env.MY_MAIL,
+    accessKey: process.env.MAIL_KEY,
+  };
+  const postData = { ...defaultData, name, email, message };
+
+  return await new Promise((_resolve, _reject) => {
     setTimeout(() => {
-      const data = { ...contact, status };
-      resolve(data);
-    }, 500);
+      _resolve(postData);
+      // _reject(postData);
+    }, 1000);
   });
 };
