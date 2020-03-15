@@ -10,39 +10,54 @@ const CountContainer: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <div>お名前</div>
-        <input
-          type="text"
-          name="name"
-          placeholder="お名前"
-          ref={register({ required: true })}
-        />
-        {errors.name && <div>お名前は必須です。</div>}
-      </div>
+      <label htmlFor="name" style={{ display: 'block' }}>
+        お名前
+      </label>
+      <input
+        type="text"
+        name="name"
+        placeholder="静岡太郎"
+        ref={register({ required: true })}
+        style={{ display: 'block' }}
+      />
+      {errors.name && (
+        <div style={{ fontSize: '10px', color: 'red' }}>お名前は必須です。</div>
+      )}
 
-      <div>
-        <div>メールアドレス</div>
-        <input
-          type="email"
-          name="email"
-          placeholder="mail@example.com"
-          ref={register({ required: true })}
-        />
-        {errors.email && <div>メールアドレスは必須です</div>}
-      </div>
+      <label htmlFor="email" style={{ display: 'block' }}>
+        メールアドレス
+      </label>
+      <input
+        type="email"
+        name="email"
+        placeholder="mail@example.com"
+        ref={register({ required: true })}
+        style={{ display: 'block' }}
+      />
+      {errors.email && (
+        <div style={{ fontSize: '10px', color: 'red' }}>
+          メールアドレスは必須です
+        </div>
+      )}
 
-      <div>
-        <div>お問い合わせ内容</div>
-        <textarea
-          name="message"
-          placeholder="hoge"
-          ref={register({ required: true })}
-        />
-        {errors.message && <div>お問い合わせ内容は必須です</div>}
-      </div>
+      <label htmlFor="message" style={{ display: 'block' }}>
+        お問い合わせ内容
+      </label>
+      <textarea
+        name="message"
+        placeholder="内容"
+        ref={register({ required: true })}
+        style={{ display: 'block' }}
+      />
+      {errors.message && (
+        <div style={{ fontSize: '10px', color: 'red' }}>
+          お問い合わせ内容は必須です
+        </div>
+      )}
 
-      <button type="submit">お問い合わせ送信</button>
+      <button type="submit" style={{ display: 'block' }}>
+        送信
+      </button>
     </form>
   );
 };

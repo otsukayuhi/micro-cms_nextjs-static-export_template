@@ -1,10 +1,8 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import { countReducer } from 'store/count/reducers';
 import { contactReducer } from 'store/contact/reducers';
 
 const rootReducer = combineReducers({
-  count: countReducer,
   contact: contactReducer,
 });
 

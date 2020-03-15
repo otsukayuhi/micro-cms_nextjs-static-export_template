@@ -8,7 +8,6 @@ import React from 'react';
 import Link from 'next/link';
 import { PageTypes } from 'types/data';
 import { HeadingStyle, LeadStyle } from 'components/top/styles';
-import CountContainer from 'containers/countContainer';
 import ContactContainer from 'containers/contactContainer';
 
 export type TopContainerProps = PageTypes;
@@ -22,7 +21,6 @@ const TopContainer: React.FC<TopContainerProps> = ({ title, description }) => {
       <Link href="/about">
         <a>About</a>
       </Link>
-      <CountContainer />
       <ContactContainer />
     </>
   );
