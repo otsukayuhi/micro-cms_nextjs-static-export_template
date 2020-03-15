@@ -6,7 +6,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
 import { PageTypes, LinkTypes } from 'types/data';
 import {
   HeadingStyle,
@@ -14,25 +13,19 @@ import {
   LinkListStyle,
 } from 'components/about/styles';
 
-export type TopContainerProps = {
+export type AboutContainerProps = {
   links: LinkTypes[];
 } & PageTypes;
 
 // Container層
-const TopContainer: React.FC<TopContainerProps> = ({
+const AboutContainer: React.FC<AboutContainerProps> = ({
   title,
   description,
   links,
 }) => {
-  const name = useSelector(state => state.contact.name);
   return (
     <>
       <HeadingStyle text={title} />
-      {name && (
-        <p>
-          こんにちは、<strong>{name}</strong>さん
-        </p>
-      )}
       <LeadStyle text={description} />
       <Link href="/">
         <a>Top</a>
@@ -42,4 +35,4 @@ const TopContainer: React.FC<TopContainerProps> = ({
   );
 };
 
-export default TopContainer;
+export default AboutContainer;

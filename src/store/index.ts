@@ -16,3 +16,5 @@ const bindMiddleware = middleware => {
 
 export const configureStore = () =>
   createStore(rootReducer, bindMiddleware([thunk]));
+
+export type RootState = ReturnType<typeof rootReducer>;

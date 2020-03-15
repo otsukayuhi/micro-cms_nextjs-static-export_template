@@ -1,12 +1,16 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
+import { RootState } from 'store';
 import { setPostData } from 'store/contact/actions';
+import { PostData } from 'store/contact/types';
 
 const FormContainer: React.FC = () => {
   const dispatch = useDispatch();
-  const { name, email, message } = useSelector(state => state.contact);
-  const { register, handleSubmit, errors } = useForm({
+  const selectIsOn = (state: RootState) => state.contact;
+  const contactState = useSelector(selectIsOn);
+  const { name, email, message } = contactState;
+  const { register, handleSubmit, errors } = useForm<PostData>({
     defaultValues: {
       name,
       email,
@@ -25,7 +29,7 @@ const FormContainer: React.FC = () => {
           name="name"
           placeholder="大阪太郎"
           ref={register({ required: '必須項目です。' })}
-          style={{ display: 'block' }}
+          style={{ display: 'block', border: 'solid 1px #333' }}
         />
         {errors.name && (
           <div style={{ fontSize: '10px', color: 'red' }}>
@@ -46,7 +50,7 @@ const FormContainer: React.FC = () => {
               message: '正しいメールアドレスではありません。',
             },
           })}
-          style={{ display: 'block' }}
+          style={{ display: 'block', border: 'solid 1px #333' }}
         />
         {errors.email && (
           <div style={{ fontSize: '10px', color: 'red' }}>
@@ -61,7 +65,7 @@ const FormContainer: React.FC = () => {
           name="message"
           placeholder="内容"
           ref={register({ required: '必須項目です。' })}
-          style={{ display: 'block' }}
+          style={{ display: 'block', border: 'solid 1px #333' }}
         />
         {errors.message && (
           <div style={{ fontSize: '10px', color: 'red' }}>
@@ -69,7 +73,10 @@ const FormContainer: React.FC = () => {
           </div>
         )}
 
-        <button type="submit" style={{ display: 'block' }}>
+        <button
+          type="submit"
+          style={{ display: 'block', border: 'solid 1px #333' }}
+        >
           送信内容の確認
         </button>
       </form>

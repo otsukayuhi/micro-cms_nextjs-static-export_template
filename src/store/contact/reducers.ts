@@ -1,3 +1,4 @@
+import { ContactActions, InitialContactState } from './types';
 import {
   SET_POST_DATA,
   EDIT_POST_DATA,
@@ -7,27 +8,26 @@ import {
   CONTACT_COMPLETE,
 } from './actions';
 
-type InitialState = {
-  name: string;
-  email: string;
-  message: string;
-  setPostData: boolean;
-  isLoading: boolean;
-  status: 'no_fetch' | 'success' | 'failure';
-  isComplete: boolean;
-};
+export enum ContactStatus {
+  noFetch = 'no_fetch',
+  success = 'success',
+  failure = 'failure',
+}
 
-const initialState: InitialState = {
+const initialContactState: InitialContactState = {
   name: '',
   email: '',
   message: '',
   setPostData: false,
   isLoading: false,
-  status: 'no_fetch',
+  status: ContactStatus.noFetch,
   isComplete: false,
 };
 
-export const contactReducer = (state: InitialState = initialState, action) => {
+export const contactReducer = (
+  state = initialContactState,
+  action: ContactActions,
+): InitialContactState => {
   switch (action.type) {
     case SET_POST_DATA:
       return {
@@ -53,7 +53,6 @@ export const contactReducer = (state: InitialState = initialState, action) => {
       return {
         ...state,
         ...action.data,
-        isLoading: false,
         status: 'success',
       };
     case REQUEST_POST_FAILURE:
@@ -65,7 +64,7 @@ export const contactReducer = (state: InitialState = initialState, action) => {
       };
     case CONTACT_COMPLETE:
       return {
-        ...initialState,
+        ...initialContactState,
         isComplete: true,
       };
     default:
