@@ -50,8 +50,7 @@
     "export": "NODE_ENV=production && npm run build && next export",
     "lint": "eslint --quiet \"src/**/*.{ts,tsx}\"",
     "lint:fix": "eslint --fix --quiet \"src/**/*.{ts,tsx}\"",
-    "test": "jest",
-    "update-data": "node ./functions/update.js"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
