@@ -1,4 +1,4 @@
-# microCMS & Next.js (static export)のサンプル
+# microCMS & Static Forms & Next.js (static export)のサンプル
 
 ## 設計方法（暫定）
 
@@ -43,5 +43,7 @@
 
 ```
 X_API_KEY={microCMSのAPIキー}
+MAIL_KEY={Static Formsのアクセスキー}
+MY_MAIL={メールフォームのアドレス}
 API_URL={APIのURL}
 ```
