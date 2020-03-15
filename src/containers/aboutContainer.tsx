@@ -7,19 +7,18 @@
 import React from 'react';
 import Link from 'next/link';
 import { PageTypes, LinkTypes } from 'types/data';
-import CountContainer from 'containers/countContainer';
 import {
   HeadingStyle,
   LeadStyle,
   LinkListStyle,
 } from 'components/about/styles';
 
-export type TopContainerProps = {
+export type AboutContainerProps = {
   links: LinkTypes[];
 } & PageTypes;
 
 // Container層
-const TopContainer: React.FC<TopContainerProps> = ({
+const AboutContainer: React.FC<AboutContainerProps> = ({
   title,
   description,
   links,
@@ -32,9 +31,8 @@ const TopContainer: React.FC<TopContainerProps> = ({
         <a>Top</a>
       </Link>
       <LinkListStyle linkList={links} />
-      <CountContainer />
     </>
   );
 };
 
-export default TopContainer;
+export default AboutContainer;

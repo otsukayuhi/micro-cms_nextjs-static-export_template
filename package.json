@@ -10,8 +10,10 @@
     "next": "^9.3.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-hook-form": "^5.1.0",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "ress": "^2.0.4"
   },
   "devDependencies": {
@@ -34,6 +36,7 @@
     "json-loader": "^0.5.7",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
+    "react-hook-form-devtools": "^1.1.2",
     "redux-devtools": "^3.5.0",
     "redux-devtools-extension": "^2.13.8",
     "ts-jest": "^24.3.0",
@@ -47,8 +50,7 @@
     "export": "NODE_ENV=production && npm run build && next export",
     "lint": "eslint --quiet \"src/**/*.{ts,tsx}\"",
     "lint:fix": "eslint --fix --quiet \"src/**/*.{ts,tsx}\"",
-    "test": "jest",
-    "update-data": "node ./functions/update.js"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",

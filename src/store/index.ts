@@ -1,7 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import count from 'store/count/reducers';
+import thunk from 'redux-thunk';
+import { contactReducer } from 'store/contact/reducers';
 
-const rootReducer = combineReducers({ count });
+const rootReducer = combineReducers({
+  contact: contactReducer,
+});
 
 const bindMiddleware = middleware => {
   if (process.env.NODE_ENV !== 'production') {
@@ -11,6 +14,7 @@ const bindMiddleware = middleware => {
   return applyMiddleware(...middleware);
 };
 
-const initStore = () => createStore(rootReducer, bindMiddleware([]));
+export const configureStore = () =>
+  createStore(rootReducer, bindMiddleware([thunk]));
 
-export default initStore;
+export type RootState = ReturnType<typeof rootReducer>;

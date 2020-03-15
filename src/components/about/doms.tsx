@@ -39,7 +39,7 @@ export const LinkList: React.FC<LinkListProps> = ({ className, linkList }) => (
   <ul className={className}>
     {linkList.map((item, index) => (
       <li key={index}>
-        <a href={item.url} target="_blank" rel=" noopener noreferrer">
+        <a href={item.url} target="_blank" rel="noopener noreferrer">
           {item.linkName}
         </a>
       </li>

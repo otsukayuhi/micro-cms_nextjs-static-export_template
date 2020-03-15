@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
-import configureStore from 'store';
+import { configureStore } from 'store';
 
 import 'ress/dist/ress.min.css';
 import 'style/override.css';
