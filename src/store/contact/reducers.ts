@@ -39,28 +39,24 @@ export const contactReducer = (
     case EDIT_POST_DATA:
       return {
         ...state,
-        ...action.data,
         setPostData: false,
-        status: 'no_fetch',
+        status: ContactStatus.noFetch,
       };
     case REQUEST_POST:
       return {
         ...state,
-        ...action.data,
         isLoading: true,
       };
     case REQUEST_POST_SUCCESS:
       return {
         ...state,
-        ...action.data,
-        status: 'success',
+        status: ContactStatus.success,
       };
     case REQUEST_POST_FAILURE:
       return {
         ...state,
-        ...action.data,
         isLoading: false,
-        status: 'failure',
+        status: ContactStatus.failure,
       };
     case CONTACT_COMPLETE:
       return {

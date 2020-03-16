@@ -5,11 +5,12 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store';
+import { InitialContactState } from 'store/contact/types';
 
 const Page: NextPage = () => {
   const router = useRouter();
   const selectIsOn = (state: RootState) => state.contact;
-  const contactState = useSelector(selectIsOn);
+  const contactState: InitialContactState = useSelector(selectIsOn);
 
   const { isComplete } = contactState;
   const rootUrl = '/';

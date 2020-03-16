@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const getData = async (path, fields = '') => {
+export const getData = async (path: string, fields = '') => {
   const url = process.env.API_URL + path;
   const options = {
     headers: {

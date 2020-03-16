@@ -1,5 +1,7 @@
 // import axios from 'axios';
 
+import { InitialContactState } from 'store/contact/types';
+
 // const url = 'https://api.staticforms.xyz/submit';
 // const options = {
 //   headers: {
@@ -7,7 +9,7 @@
 //   },
 // };
 
-// export const postContact = async contactData => {
+// export const postContact = async (contactData: InitialContactState) => {
 //   const { name, email, message } = contactData;
 //   const defaultData = {
 //     subject: `${name}様より、お問い合わせです。`,
@@ -22,7 +24,7 @@
 //   return data;
 // };
 
-export const postContact = async contactData => {
+export const postContact = async (contactData: InitialContactState) => {
   const { name, email, message } = contactData;
   const defaultData = {
     subject: `${name}様より、お問い合わせです。`,

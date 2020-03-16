@@ -6,16 +6,16 @@ import { ContactStatus } from 'store/contact/reducers';
 import FromContainer from './form';
 import ConfirmContainer from './confirm';
 import { completeContact } from 'store/contact/actions';
+import { InitialContactState } from 'store/contact/types';
 
 const CountContainer: React.FC = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const selectIsOn = (state: RootState) => state.contact;
-  const contactState = useSelector(selectIsOn);
+  const contactState: InitialContactState = useSelector(selectIsOn);
+
   const { setPostData, isLoading, status } = contactState;
-
   const content = setPostData ? <ConfirmContainer /> : <FromContainer />;
-
   const completeUrl = '/contact/complete';
 
   useEffect(() => {

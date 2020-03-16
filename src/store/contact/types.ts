@@ -11,7 +11,7 @@ import { ContactStatus } from './reducers';
 // Actions
 export type SendPostData = {
   type: typeof SET_POST_DATA;
-  data: any;
+  data: PostData;
 };
 
 export type EditPostData = {

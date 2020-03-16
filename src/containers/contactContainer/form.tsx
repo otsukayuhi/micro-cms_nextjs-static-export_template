@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { RootState } from 'store';
 import { setPostData } from 'store/contact/actions';
-import { PostData } from 'store/contact/types';
+import { PostData, InitialContactState } from 'store/contact/types';
 
 const FormContainer: React.FC = () => {
   const dispatch = useDispatch();
   const selectIsOn = (state: RootState) => state.contact;
-  const contactState = useSelector(selectIsOn);
+  const contactState: InitialContactState = useSelector(selectIsOn);
   const { name, email, message } = contactState;
   const { register, handleSubmit, errors } = useForm<PostData>({
     defaultValues: {
@@ -18,6 +18,10 @@ const FormContainer: React.FC = () => {
     },
   });
   const onSubmit = data => dispatch(setPostData(data));
+
+  // 適当なスタイル
+  const dummyStyle = { display: 'block', border: 'solid 1px #333' };
+  const dummyErrorStyle = { fontSize: '10px', color: 'red' };
 
   return (
     <>
@@ -29,12 +33,10 @@ const FormContainer: React.FC = () => {
           name="name"
           placeholder="大阪太郎"
           ref={register({ required: '必須項目です。' })}
-          style={{ display: 'block', border: 'solid 1px #333' }}
+          style={dummyStyle}
         />
         {errors.name && (
-          <div style={{ fontSize: '10px', color: 'red' }}>
-            {errors.name.message}
-          </div>
+          <div style={dummyErrorStyle}>{errors.name.message}</div>
         )}
 
         <label htmlFor="email" style={{ display: 'block' }}>
@@ -50,12 +52,10 @@ const FormContainer: React.FC = () => {
               message: '正しいメールアドレスではありません。',
             },
           })}
-          style={{ display: 'block', border: 'solid 1px #333' }}
+          style={dummyStyle}
         />
         {errors.email && (
-          <div style={{ fontSize: '10px', color: 'red' }}>
-            {errors.email.message}
-          </div>
+          <div style={dummyErrorStyle}>{errors.email.message}</div>
         )}
 
         <label htmlFor="message" style={{ display: 'block' }}>
@@ -65,18 +65,13 @@ const FormContainer: React.FC = () => {
           name="message"
           placeholder="内容"
           ref={register({ required: '必須項目です。' })}
-          style={{ display: 'block', border: 'solid 1px #333' }}
+          style={dummyStyle}
         />
         {errors.message && (
-          <div style={{ fontSize: '10px', color: 'red' }}>
-            {errors.message.message}
-          </div>
+          <div style={dummyErrorStyle}>{errors.message.message}</div>
         )}
 
-        <button
-          type="submit"
-          style={{ display: 'block', border: 'solid 1px #333' }}
-        >
+        <button type="submit" style={dummyStyle}>
           送信内容の確認
         </button>
       </form>

@@ -6,6 +6,8 @@ import {
   RequestPostsSuccess,
   RequestPostFailure,
   CompleteContact,
+  PostData,
+  InitialContactState,
 } from './types';
 
 export const SET_POST_DATA = 'SET_POST_DATA';
@@ -15,7 +17,7 @@ export const REQUEST_POST_SUCCESS = 'REQUEST_POST_SUCCESS';
 export const REQUEST_POST_FAILURE = 'REQUEST_POST_FAILURE';
 export const CONTACT_COMPLETE = 'CONTACT_COMPLETE';
 
-export const setPostData = (data): SendPostData => ({
+export const setPostData = (data: PostData): SendPostData => ({
   type: 'SET_POST_DATA',
   data,
 });
@@ -40,11 +42,11 @@ export const completeContact = (): CompleteContact => ({
   type: CONTACT_COMPLETE,
 });
 
-export const fetchPost = contactData => {
+export const fetchPost = (contentState: InitialContactState) => {
   return async dispatch => {
     dispatch(requestPosts());
     try {
-      await postContact(contactData);
+      await postContact(contentState);
       dispatch(requestPostsSuccess());
     } catch (error) {
       dispatch(requestPostFailure());
