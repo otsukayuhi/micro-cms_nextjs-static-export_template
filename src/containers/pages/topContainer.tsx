@@ -7,7 +7,7 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
 import { TopPageDataContext } from 'pages';
-import { HeadingStyle, LeadStyle } from 'components/top/styles';
+import { HeadingStyle, LeadStyle } from 'components/pages/top/styles';
 
 // Container層
 const TopContainer: React.FC = () => {

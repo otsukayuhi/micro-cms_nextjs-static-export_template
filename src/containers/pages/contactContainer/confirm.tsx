@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store';
-import { fetchPost, editPostData } from 'store/contact/actions';
-import { InitialContactState } from 'store/contact/types';
+import { fetchPost, editPostData } from 'store/pages/contact/actions';
+import { InitialContactState } from 'store/pages/contact/types';
 
 const ConfirmContainer: React.FC = () => {
   const dispatch = useDispatch();

@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store';
-import { ContactStatus } from 'store/contact/reducers';
+import { ContactStatus } from 'store/pages/contact/reducers';
+import { completeContact } from 'store/pages/contact/actions';
+import { InitialContactState } from 'store/pages/contact/types';
 import FromContainer from './form';
 import ConfirmContainer from './confirm';
-import { completeContact } from 'store/contact/actions';
-import { InitialContactState } from 'store/contact/types';
 
 const CountContainer: React.FC = () => {
   const router = useRouter();

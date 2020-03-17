@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import { contactReducer } from 'store/contact/reducers';
+import { contactReducer } from 'store/pages/contact/reducers';
 
 const rootReducer = combineReducers({
   contact: contactReducer,

@@ -1,8 +1,8 @@
 import React, { createContext } from 'react';
 import { NextPage, GetStaticProps } from 'next';
-import TopContainer from 'containers/topContainer';
+import TopContainer from 'containers/pages/topContainer';
 import { getPageData } from 'gateways/getPageData';
-import HeadComponent, { HeadComponentProps } from 'components/head/dom';
+import HeadComponent, { HeadComponentProps } from 'components/atoms/head/dom';
 
 type TopPageDataContextProps = HeadComponentProps;
 

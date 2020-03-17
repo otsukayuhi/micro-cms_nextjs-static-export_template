@@ -1,9 +1,9 @@
 import React from 'react';
-import Head from 'next/head';
 import { NextPage } from 'next';
-import ContactContainer from 'containers/contactContainer';
+import HeadComponent, { HeadComponentProps } from 'components/atoms/head/dom';
+import ContactContainer from 'containers/pages/contactContainer';
 
-const pageData = {
+const pageData: HeadComponentProps = {
   title: 'お問い合わせ',
   description: 'お問い合わせページ',
 };
@@ -13,10 +13,7 @@ const Page: NextPage = () => {
 
   return (
     <>
-      <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-      </Head>
+      <HeadComponent title={title} description={description} />
       <ContactContainer />
     </>
   );

@@ -1,8 +1,8 @@
 import React, { createContext } from 'react';
 import { NextPage, GetStaticProps } from 'next';
-import HeadComponent, { HeadComponentProps } from 'components/head/dom';
-import AboutContainer from 'containers/aboutContainer';
-import { LinkTypes } from 'components/about/doms';
+import HeadComponent, { HeadComponentProps } from 'components/atoms/head/dom';
+import AboutContainer from 'containers/pages/aboutContainer';
+import { LinkTypes } from 'components/pages/about/doms';
 import { getPageData } from 'gateways/getPageData';
 
 type AboutPageDataContextProps = {

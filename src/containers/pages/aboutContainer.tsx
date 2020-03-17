@@ -10,7 +10,7 @@ import {
   HeadingStyle,
   LeadStyle,
   LinkListStyle,
-} from 'components/about/styles';
+} from 'components/pages/about/styles';
 import { AboutPageDataContext } from 'pages/about';
 
 // Container層
