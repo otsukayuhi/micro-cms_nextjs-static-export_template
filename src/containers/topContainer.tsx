@@ -4,15 +4,16 @@
  * - ロジックが必要な場合は、ここに記述する
  */
 
-import React from 'react';
+import React, { useContext } from 'react';
 import Link from 'next/link';
-import { PageTypes } from 'types/data';
+import { TopPageDataContext } from 'pages';
 import { HeadingStyle, LeadStyle } from 'components/top/styles';
 
-export type TopContainerProps = PageTypes;
-
 // Container層
-const TopContainer: React.FC<TopContainerProps> = ({ title, description }) => {
+const TopContainer: React.FC = () => {
+  const pageData = useContext(TopPageDataContext);
+  const { title, description } = pageData;
+
   return (
     <>
       <HeadingStyle text={title} />

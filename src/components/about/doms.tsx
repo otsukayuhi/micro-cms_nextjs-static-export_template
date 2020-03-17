@@ -7,7 +7,6 @@
  */
 
 import React from 'react';
-import { LinkTypes } from 'types/data';
 
 export type HeadingProps = {
   className?: string;
@@ -17,6 +16,12 @@ export type HeadingProps = {
 export type LeadProps = {
   className?: string;
   text: string;
+};
+
+export type LinkTypes = {
+  id: string;
+  linkName: string;
+  url: string;
 };
 
 export type LinkListProps = {

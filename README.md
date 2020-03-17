@@ -35,8 +35,8 @@
 - `style/`
   - `override.css`
     - リセットCSSを補填するCSS
-- `types/`
-  - CMSで取得したデータ関連の型がメイン
+    - 開発では使わない！
+      - スタイルは`styles.tsx`に書く
 
 ### 環境変数
 `.env.sample`の`.sample`部分を削除し、以下の情報を入力
