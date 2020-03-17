@@ -1,7 +1,7 @@
 import React, { createContext } from 'react';
 import { NextPage, GetStaticProps } from 'next';
 import TopContainer from 'containers/topContainer';
-import { getData } from 'gateways/getData';
+import { getPageData } from 'gateways/getPageData';
 import HeadComponent, { HeadComponentProps } from 'components/head/dom';
 
 type TopPageDataContextProps = HeadComponentProps;
@@ -28,7 +28,7 @@ const Page: NextPage<TopPageProps> = ({ pageData }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const pageData = await getData('page_data_top');
+  const pageData = await getPageData('page_data_top');
 
   return {
     props: { pageData },
