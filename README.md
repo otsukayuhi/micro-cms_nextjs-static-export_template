@@ -36,6 +36,9 @@
     - リセットCSSを補填するCSS
     - 開発では使わない！
       - スタイルは`styles.tsx`に書く
+- `hooks/`
+  - `hooks`系の処理をまとめておく
+    - `useXXXX`の命名規則
 
 ### 環境変数
 `.env.sample`の`.sample`部分を削除し、以下の情報を入力
