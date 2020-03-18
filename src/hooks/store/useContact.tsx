@@ -75,6 +75,9 @@ export const useContactActions = () => {
       type: CONTACT_COMPLETE,
     });
 
+  /**
+   * お問い合わせ POST時の非同期処理
+   */
   const fetchPost = useCallback(
     async contentState => {
       requestPosts();
