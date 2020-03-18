@@ -4,18 +4,18 @@
  * - ロジックが必要な場合は、ここに記述する
  */
 
-import React, { useContext } from 'react';
+import React from 'react';
 import Link from 'next/link';
+import { useAboutPageData } from 'hooks/pages/usePageData';
 import {
   HeadingStyle,
   LeadStyle,
   LinkListStyle,
 } from 'components/pages/about/styles';
-import { AboutPageDataContext } from 'pages/about';
 
 // Container層
 const AboutContainer: React.FC = () => {
-  const pageData = useContext(AboutPageDataContext);
+  const pageData = useAboutPageData();
   const { title, description, links } = pageData;
   return (
     <>
