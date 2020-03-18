@@ -1,4 +1,3 @@
-import { ContactActions, InitialContactState } from './types';
 import {
   SET_POST_DATA,
   EDIT_POST_DATA,
@@ -6,7 +5,21 @@ import {
   REQUEST_POST_SUCCESS,
   REQUEST_POST_FAILURE,
   CONTACT_COMPLETE,
+  ContactActions,
 } from './actions';
+
+export type PostData = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+export type InitialContactState = {
+  setPostData: boolean;
+  isLoading: boolean;
+  status: ContactStatus;
+  isComplete: boolean;
+} & PostData;
 
 export enum ContactStatus {
   noFetch = 'no_fetch',
@@ -32,7 +45,7 @@ export const contactReducer = (
     case SET_POST_DATA:
       return {
         ...state,
-        ...action.data,
+        ...action.postData,
         setPostData: true,
         isComplete: true,
       };

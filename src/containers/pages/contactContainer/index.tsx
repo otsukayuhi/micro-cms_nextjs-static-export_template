@@ -1,18 +1,14 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'store';
 import { ContactStatus } from 'store/pages/contact/reducers';
-import { completeContact } from 'store/pages/contact/actions';
-import { InitialContactState } from 'store/pages/contact/types';
+import { useContactActions, useContactState } from 'hooks/store/useContact';
 import FromContainer from './form';
 import ConfirmContainer from './confirm';
 
 const CountContainer: React.FC = () => {
   const router = useRouter();
-  const dispatch = useDispatch();
-  const selectIsOn = (state: RootState) => state.contact;
-  const contactState: InitialContactState = useSelector(selectIsOn);
+  const { completeContact } = useContactActions();
+  const contactState = useContactState();
 
   const { setPostData, isLoading, status } = contactState;
   const content = setPostData ? <ConfirmContainer /> : <FromContainer />;
@@ -20,10 +16,12 @@ const CountContainer: React.FC = () => {
 
   useEffect(() => {
     if (status === ContactStatus.success) {
-      dispatch(completeContact());
+      completeContact();
       router.push(completeUrl);
     }
-  }, [dispatch, router, status]);
+    // statusのみを検知
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [status]);
 
   return (
     <>
