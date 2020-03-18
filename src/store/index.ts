@@ -1,5 +1,4 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
 import { contactReducer } from 'store/pages/contact/reducers';
 
 const rootReducer = combineReducers({
@@ -15,6 +14,6 @@ const bindMiddleware = middleware => {
 };
 
 export const configureStore = () =>
-  createStore(rootReducer, bindMiddleware([thunk]));
+  createStore(rootReducer, bindMiddleware([]));
 
 export type RootState = ReturnType<typeof rootReducer>;

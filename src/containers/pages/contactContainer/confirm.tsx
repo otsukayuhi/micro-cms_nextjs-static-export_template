@@ -1,17 +1,12 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'store';
-import { fetchPost, editPostData } from 'store/pages/contact/actions';
-import { InitialContactState } from 'store/pages/contact/types';
+import { useContactActions, useContactState } from 'hooks/store/useContact';
 
 const ConfirmContainer: React.FC = () => {
-  const dispatch = useDispatch();
-  const selectIsOn = (state: RootState) => state.contact;
-  const contactState: InitialContactState = useSelector(selectIsOn);
-
+  const { fetchPost, editPostData } = useContactActions();
+  const contactState = useContactState();
   const { name, email, message } = contactState;
-  const onSubmit = () => dispatch(fetchPost(contactState));
-  const editPost = () => dispatch(editPostData());
+  const onSubmit = () => fetchPost(contactState);
+  const editPost = () => editPostData();
 
   // 適当なスタイル
   const dummyStyle = {

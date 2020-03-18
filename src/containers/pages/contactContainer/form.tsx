@@ -1,14 +1,11 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { RootState } from 'store';
-import { setPostData } from 'store/pages/contact/actions';
-import { PostData, InitialContactState } from 'store/pages/contact/types';
+import { PostData } from 'store/pages/contact/reducers';
+import { useContactActions, useContactState } from 'hooks/store/useContact';
 
 const FormContainer: React.FC = () => {
-  const dispatch = useDispatch();
-  const selectIsOn = (state: RootState) => state.contact;
-  const contactState: InitialContactState = useSelector(selectIsOn);
+  const { setPostData } = useContactActions();
+  const contactState = useContactState();
   const { name, email, message } = contactState;
   const { register, handleSubmit, errors } = useForm<PostData>({
     defaultValues: {
@@ -17,7 +14,9 @@ const FormContainer: React.FC = () => {
       message,
     },
   });
-  const onSubmit = data => dispatch(setPostData(data));
+  const onSubmit = data => {
+    setPostData(data);
+  };
 
   // 適当なスタイル
   const dummyStyle = { display: 'block', border: 'solid 1px #333' };

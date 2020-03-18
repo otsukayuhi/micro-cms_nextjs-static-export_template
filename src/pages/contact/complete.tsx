@@ -2,10 +2,8 @@ import React, { useEffect } from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
-import { RootState } from 'store';
-import { InitialContactState } from 'store/pages/contact/types';
 import HeadComponent, { HeadComponentProps } from 'components/atoms/head/dom';
+import { useContactState } from 'hooks/store/useContact';
 
 const pageData: HeadComponentProps = {
   title: 'お問い合わせ | 完了',
@@ -14,9 +12,7 @@ const pageData: HeadComponentProps = {
 
 const Page: NextPage = () => {
   const router = useRouter();
-  const selectIsOn = (state: RootState) => state.contact;
-  const contactState: InitialContactState = useSelector(selectIsOn);
-
+  const contactState = useContactState();
   const { isComplete } = contactState;
   const rootUrl = '/';
 
@@ -24,7 +20,9 @@ const Page: NextPage = () => {
 
   useEffect(() => {
     if (!isComplete) router.push(rootUrl);
-  }, [router, isComplete]);
+    // isCompleteのみを検知
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isComplete]);
 
   return (
     <>

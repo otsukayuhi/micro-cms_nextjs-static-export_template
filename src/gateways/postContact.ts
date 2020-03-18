@@ -1,6 +1,6 @@
 // import axios from 'axios';
 
-import { InitialContactState } from 'store/pages/contact/types';
+import { InitialContactState } from 'store/pages/contact/reducers';
 
 // const url = 'https://api.staticforms.xyz/submit';
 // const options = {
