@@ -4,6 +4,7 @@ import { ContactStatus } from 'store/pages/contact/reducers';
 import { useContactActions, useContactState } from 'hooks/store/useContact';
 import FromContainer from './form';
 import ConfirmContainer from './confirm';
+import { LayoutStyle } from 'components/commons/layout/styles';
 
 const CountContainer: React.FC = () => {
   const router = useRouter();
@@ -24,11 +25,11 @@ const CountContainer: React.FC = () => {
   }, [status]);
 
   return (
-    <>
+    <LayoutStyle title="Contact">
       {isLoading && <div>Loading...</div>}
       {status === ContactStatus.failure && <div>送信失敗</div>}
       {content}
-    </>
+    </LayoutStyle>
   );
 };
 

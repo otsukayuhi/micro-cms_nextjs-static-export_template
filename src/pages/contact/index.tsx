@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextPage } from 'next';
-import HeadComponent, { HeadComponentProps } from 'components/atoms/head/dom';
+import HeadComponent, { HeadComponentProps } from 'components/commons/head/dom';
 import ContactContainer from 'containers/pages/contactContainer';
 
 const pageData: HeadComponentProps = {

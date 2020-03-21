@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import HeadComponent, { HeadComponentProps } from 'components/atoms/head/dom';
+import HeadComponent, { HeadComponentProps } from 'components/commons/head/dom';
 import { useContactState } from 'hooks/store/useContact';
 
 const pageData: HeadComponentProps = {
