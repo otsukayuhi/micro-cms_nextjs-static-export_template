@@ -1,5 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import Link from 'next/link';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import Button from '@material-ui/core/Button';
 
 export type NavigationProps = {
   className?: string;
@@ -15,7 +17,11 @@ export const Navigation: React.FC<NavigationProps> = ({ className }) => (
     <ul className="_list">
       <li className="_item">
         <Link href="/contact">
-          <a>Contact</a>
+          <a>
+            <Button startIcon={<NavigateNextIcon />} component={'span'}>
+              contact
+            </Button>
+          </a>
         </Link>
       </li>
     </ul>

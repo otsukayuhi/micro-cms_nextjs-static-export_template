@@ -46,15 +46,11 @@ export const MemberSectionStyle = styled(MemberSection)`
   }
 
   > ._body {
-    margin-top: ${Margin.M16};
-    > ._title {
-      font-size: 2.4rem;
-    }
-
+    margin-top: ${Margin.M40};
     > ._list {
-      margin-top: ${Margin.M8};
-      > ._item:nth-of-type(n + 2) {
-        margin-top: ${Margin.M4};
+      margin: 0 -${Margin.M4} -${Margin.M4};
+      > * {
+        margin: ${Margin.M4};
       }
     }
   }

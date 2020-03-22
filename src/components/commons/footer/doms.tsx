@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React from 'react';
+import { Typography } from '@material-ui/core';
 
 export type FooterProps = {
   className?: string;
@@ -6,6 +7,6 @@ export type FooterProps = {
 
 export const Footer: React.FC<FooterProps> = ({ className }) => (
   <footer className={className}>
-    <small>Copyright Futae.app</small>
+    <Typography variant="caption">Copyright Futae.app</Typography>
   </footer>
 );

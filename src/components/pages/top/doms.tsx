@@ -6,8 +6,10 @@
  *   - props => ()とすることにより、余計なロジックが入らないようにする
  */
 
-import * as React from 'react';
-import { LayoutStyle } from 'components/commons/layout/styles';
+import React from 'react';
+import { SectionLayoutStyle } from 'components/commons/layout/section/styles';
+import Typography from '@material-ui/core/Typography';
+import Chip from '@material-ui/core/Chip';
 
 export type CoverProps = {
   className?: string;
@@ -26,37 +28,49 @@ export const Cover: React.FC<CoverProps> = ({ className }) => (
     <h1 className="_logo">
       <img src="/images/maru.svg" alt="フタエドットアップ" />
     </h1>
-    <p className="_text">Web Site / Design & Consulting</p>
+    <Typography className="_text" variant="body1">
+      Web Site / Design & Consulting
+    </Typography>
   </div>
 );
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => (
-  <LayoutStyle title="Web Site / Design & Consulting">
+  <SectionLayoutStyle title="Web Site / Design & Consulting">
     <div className={className}>
       <img src="/images/image.jpg" alt="" />
-      <p className="_text">
+      <Typography className="_text" variant="body1">
         Webサイト制作や、サーバーの設定見直しなどなど、お気軽にご相談ください。
-      </p>
+      </Typography>
     </div>
-  </LayoutStyle>
+  </SectionLayoutStyle>
 );
 
 export const MemberSection: React.FC<MemberSectionProps> = ({ className }) => (
-  <LayoutStyle title="Member">
+  <SectionLayoutStyle title="Member">
     <div className={className}>
       <div className="_header">
         <img className="_img" src="/images/yuhi_logo.png" alt="" />
-        <p className="_text">フロントエンドウェブデベロッパー</p>
+        <Typography className="_text" variant="body1">
+          フロントエンドウェブデベロッパー
+        </Typography>
       </div>
       <section className="_body">
-        <h3 className="_title">SKILL SET</h3>
+        <Typography variant="h3" gutterBottom>
+          SKILL SET
+        </Typography>
         <ul className="_list">
-          <dd className="_item">HTML</dd>
-          <dd className="_item">CSS</dd>
-          <dd className="_item">JavaScript</dd>
-          <dd className="_item">AWS</dd>
+          <Chip label="HTML" variant="outlined" />
+          <Chip label="CSS" variant="outlined" />
+          <Chip label="JavaScript" variant="outlined" />
+          <Chip label="TypeScript" variant="outlined" />
+          <Chip label="React" variant="outlined" />
+          <Chip label="jQuery" variant="outlined" />
+          <Chip label="SCSS" variant="outlined" />
+          <Chip label="FLOCSS" variant="outlined" />
+          <Chip label="BEM" variant="outlined" />
+          <Chip label="AWS" variant="outlined" />
         </ul>
       </section>
     </div>
-  </LayoutStyle>
+  </SectionLayoutStyle>
 );

@@ -4,7 +4,8 @@
  * - ロジックが必要な場合は、ここに記述する
  */
 
-import * as React from 'react';
+import React from 'react';
+import { BaseLayoutStyle } from 'components/commons/layout/base/styles';
 import {
   CoverStyle,
   MemberSectionStyle,
@@ -18,11 +19,11 @@ const TopContainer: React.FC = () => {
   // const { title, description } = pageData;
 
   return (
-    <>
+    <BaseLayoutStyle>
       <CoverStyle />
       <AboutSectionStyle />
       <MemberSectionStyle />
-    </>
+    </BaseLayoutStyle>
   );
 };
 
