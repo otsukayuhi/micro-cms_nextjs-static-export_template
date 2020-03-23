@@ -11,7 +11,7 @@ export const Navigation: React.FC<NavigationProps> = ({ className }) => (
   <nav className={className}>
     <Link href="/">
       <a className="_logo">
-        <img src="images/logo.svg" alt="フタエドットアップ" />
+        <img src="/images/logo.svg" alt="フタエドットアップ" />
       </a>
     </Link>
     <ul className="_list">
