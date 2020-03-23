@@ -6,14 +6,14 @@ import {
   EDIT_POST_DATA,
   REQUEST_POST_SUCCESS,
   REQUEST_POST_FAILURE,
-  CONTACT_COMPLETE,
+  CONTACT_CLEAR,
   REQUEST_POST,
   SendPostData,
   EditPostData,
   RequestPosts,
   RequestPostsSuccess,
   RequestPostFailure,
-  CompleteContact,
+  ContactClear,
 } from 'store/pages/contact/actions';
 import { PostData, InitialContactState } from 'store/pages/contact/reducers';
 import { postContact } from 'gateways/postContact';
@@ -70,9 +70,9 @@ export const useContactActions = () => {
    * お問い合わせ完了
    * ローディング状態の解除
    */
-  const completeContact = (): CompleteContact =>
+  const contactClear = (): ContactClear =>
     dispatch({
-      type: CONTACT_COMPLETE,
+      type: CONTACT_CLEAR,
     });
 
   /**
@@ -99,7 +99,7 @@ export const useContactActions = () => {
     requestPosts,
     requestPostsSuccess,
     requestPostFailure,
-    completeContact,
+    contactClear,
     fetchPost,
   };
 };

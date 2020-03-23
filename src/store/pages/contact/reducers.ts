@@ -4,7 +4,7 @@ import {
   REQUEST_POST,
   REQUEST_POST_SUCCESS,
   REQUEST_POST_FAILURE,
-  CONTACT_COMPLETE,
+  CONTACT_CLEAR,
   ContactActions,
 } from './actions';
 
@@ -18,7 +18,6 @@ export type InitialContactState = {
   setPostData: boolean;
   isLoading: boolean;
   status: ContactStatus;
-  isComplete: boolean;
 } & PostData;
 
 export enum ContactStatus {
@@ -34,7 +33,6 @@ const initialContactState: InitialContactState = {
   setPostData: false,
   isLoading: false,
   status: ContactStatus.noFetch,
-  isComplete: false,
 };
 
 export const contactReducer = (
@@ -47,7 +45,6 @@ export const contactReducer = (
         ...state,
         ...action.postData,
         setPostData: true,
-        isComplete: true,
       };
     case EDIT_POST_DATA:
       return {
@@ -63,6 +60,7 @@ export const contactReducer = (
     case REQUEST_POST_SUCCESS:
       return {
         ...state,
+        isLoading: false,
         status: ContactStatus.success,
       };
     case REQUEST_POST_FAILURE:
@@ -71,10 +69,9 @@ export const contactReducer = (
         isLoading: false,
         status: ContactStatus.failure,
       };
-    case CONTACT_COMPLETE:
+    case CONTACT_CLEAR:
       return {
         ...initialContactState,
-        isComplete: true,
       };
     default:
       return state;

@@ -5,7 +5,7 @@ export const EDIT_POST_DATA = 'EDIT_POST_DATA';
 export const REQUEST_POST = 'REQUEST_POST';
 export const REQUEST_POST_SUCCESS = 'REQUEST_POST_SUCCESS';
 export const REQUEST_POST_FAILURE = 'REQUEST_POST_FAILURE';
-export const CONTACT_COMPLETE = 'CONTACT_COMPLETE';
+export const CONTACT_CLEAR = 'CONTACT_CLEAR';
 
 // Actions
 export type SendPostData = {
@@ -29,8 +29,8 @@ export type RequestPostFailure = {
   type: typeof REQUEST_POST_FAILURE;
 };
 
-export type CompleteContact = {
-  type: typeof CONTACT_COMPLETE;
+export type ContactClear = {
+  type: typeof CONTACT_CLEAR;
 };
 
 export type ContactActions = SendPostData &
@@ -38,4 +38,4 @@ export type ContactActions = SendPostData &
   RequestPosts &
   RequestPostsSuccess &
   RequestPostFailure &
-  CompleteContact;
+  ContactClear;

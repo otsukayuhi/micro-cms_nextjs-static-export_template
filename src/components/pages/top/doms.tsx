@@ -7,24 +7,70 @@
  */
 
 import React from 'react';
+import { SectionLayoutStyle } from 'components/commons/layout/section/styles';
+import Typography from '@material-ui/core/Typography';
+import Chip from '@material-ui/core/Chip';
 
-export type HeadingProps = {
+export type CoverProps = {
   className?: string;
-  text: string;
 };
 
-export type LeadProps = {
+export type AboutSectionProps = {
   className?: string;
-  text: string;
 };
 
-export const Heading: React.FC<HeadingProps> = ({ className, text }) => (
-  <h1 className={className}>{text}</h1>
+export type MemberSectionProps = {
+  className?: string;
+};
+
+export const Cover: React.FC<CoverProps> = ({ className }) => (
+  <div className={className}>
+    <h1 className="_logo">
+      <img src="/images/maru.svg" alt="フタエドットアップ" />
+    </h1>
+    <Typography className="_text" variant="body1">
+      Web Site / Design & Consulting
+    </Typography>
+  </div>
 );
 
-export const Lead: React.FC<LeadProps> = ({ className, text }) => (
-  <>
-    <p className={className}>{text}</p>
-    <img src="/images/logo.svg" alt="" width="100" />
-  </>
+export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => (
+  <SectionLayoutStyle title="Web Site / Design & Consulting">
+    <div className={className}>
+      <img src="/images/image.jpg" alt="" />
+      <Typography className="_text" variant="body1">
+        Webサイト制作や、サーバーの設定見直しなどなど、お気軽にご相談ください。
+      </Typography>
+    </div>
+  </SectionLayoutStyle>
+);
+
+export const MemberSection: React.FC<MemberSectionProps> = ({ className }) => (
+  <SectionLayoutStyle title="Member">
+    <div className={className}>
+      <div className="_header">
+        <img className="_img" src="/images/yuhi_logo.png" alt="" />
+        <Typography className="_text" variant="body1">
+          フロントエンドウェブデベロッパー
+        </Typography>
+      </div>
+      <section className="_body">
+        <Typography variant="h3" gutterBottom>
+          SKILL SET
+        </Typography>
+        <ul className="_list">
+          <Chip label="HTML" variant="outlined" />
+          <Chip label="CSS" variant="outlined" />
+          <Chip label="JavaScript" variant="outlined" />
+          <Chip label="TypeScript" variant="outlined" />
+          <Chip label="React" variant="outlined" />
+          <Chip label="jQuery" variant="outlined" />
+          <Chip label="SCSS" variant="outlined" />
+          <Chip label="FLOCSS" variant="outlined" />
+          <Chip label="BEM" variant="outlined" />
+          <Chip label="AWS" variant="outlined" />
+        </ul>
+      </section>
+    </div>
+  </SectionLayoutStyle>
 );
