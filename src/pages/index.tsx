@@ -1,25 +1,30 @@
 import React, { createContext } from 'react';
 import { NextPage, GetStaticProps } from 'next';
 import TopContainer from 'containers/pages/topContainer';
-import { getPageData } from 'gateways/getPageData';
 import HeadComponent, { HeadComponentProps } from 'components/commons/head/dom';
+import { getAPI } from 'gateways/getAPI';
 
 type TopPageDataContextProps = HeadComponentProps;
 
 type TopPageProps = {
   pageData: HeadComponentProps;
+  pathname: string;
 };
 
 export const TopPageDataContext = createContext<TopPageDataContextProps>(
   null as any,
 );
 
-const Page: NextPage<TopPageProps> = ({ pageData }) => {
+const Page: NextPage<TopPageProps> = ({ pageData, pathname }) => {
   const { title, description } = pageData;
 
   return (
     <>
-      <HeadComponent title={title} description={description} />
+      <HeadComponent
+        title={title}
+        description={description}
+        pathname={pathname}
+      />
       <TopPageDataContext.Provider value={pageData}>
         <TopContainer />
       </TopPageDataContext.Provider>
@@ -28,7 +33,7 @@ const Page: NextPage<TopPageProps> = ({ pageData }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const pageData = await getPageData('page_data_top');
+  const pageData = await getAPI('page_data_top');
 
   return {
     props: { pageData },

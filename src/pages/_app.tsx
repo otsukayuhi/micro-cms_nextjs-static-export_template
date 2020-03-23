@@ -1,5 +1,6 @@
 import React from 'react';
 import { AppProps } from 'next/app';
+import { useRouter } from 'next/router';
 import { Provider } from 'react-redux';
 import { Global, css } from '@emotion/core';
 import { configureStore } from 'store';
@@ -9,6 +10,10 @@ import 'ress/dist/ress.min.css';
 const store = configureStore();
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const pathname = router.pathname;
+  const myPageProps = { pathname, ...pageProps };
+
   return (
     <>
       <Global
@@ -32,7 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         `}
       />
       <Provider store={store}>
-        <Component {...pageProps} />
+        <Component {...myPageProps} />
       </Provider>
     </>
   );
