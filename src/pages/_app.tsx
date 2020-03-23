@@ -1,13 +1,22 @@
 import React from 'react';
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
+import styled from '@emotion/styled';
 import { Provider } from 'react-redux';
 import { Global, css } from '@emotion/core';
 import { configureStore } from 'store';
 import { Color } from 'const/Styles';
+import { NavigationStyle } from 'components/commons/navigation/styles';
+import { FooterStyle } from 'components/commons/footer/styles';
 import 'ress/dist/ress.min.css';
 
 const store = configureStore();
+
+const WrapperStyle = styled('div')`
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+`;
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -36,9 +45,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           }
         `}
       />
-      <Provider store={store}>
-        <Component {...myPageProps} />
-      </Provider>
+      <WrapperStyle>
+        <Provider store={store}>
+          <NavigationStyle />
+          <Component {...myPageProps} />
+          <FooterStyle />
+        </Provider>
+      </WrapperStyle>
     </>
   );
 }
