@@ -27,6 +27,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Global
         styles={css`
+          html,
+          body {
+            height: 100%;
+          }
+
           body {
             font-family: Roboto, 'Helvetica Neue', Arial,
               'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
@@ -42,6 +47,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           img {
             display: block;
             max-width: 100%;
+          }
+
+          #__next {
+            height: 100%;
           }
         `}
       />
