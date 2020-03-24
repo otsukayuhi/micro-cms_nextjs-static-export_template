@@ -7,9 +7,9 @@
  */
 
 import React from 'react';
-import { SectionLayoutStyle } from 'components/commons/layout/section/styles';
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
+import { SectionLayoutStyle } from 'components/commons/layout/section/styles';
 
 export type CoverProps = {
   className?: string;
@@ -55,8 +55,8 @@ export const MemberSection: React.FC<MemberSectionProps> = ({ className }) => (
         </Typography>
       </div>
       <section className="_body">
-        <Typography variant="h3" gutterBottom>
-          SKILL SET
+        <Typography variant="h4" component="h3" gutterBottom>
+          Skill Set
         </Typography>
         <ul className="_list">
           <Chip label="HTML" variant="outlined" />
