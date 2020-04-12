@@ -1,7 +1,6 @@
 # microCMS & Static Forms & Next.js (static export)のサンプル
 
 ## 設計方法（暫定）
-
 ### src/
 - `const/`
   - 定数の置き場所
