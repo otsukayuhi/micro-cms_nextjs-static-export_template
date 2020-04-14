@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { ContactStatus } from 'store/pages/contact/reducers';
 import { useContactState } from 'hooks/store/useContact';
-import { BaseLayoutStyle } from 'components/commons/layout/base/styles';
-import { SectionLayoutStyle } from 'components/commons/layout/section/styles';
-import { LoadingStyle } from 'components/commons/loading/styles';
+import { BaseStyleModules } from 'components/layout/Base';
+import { SectionStyleModules } from 'components/layout/Section';
+import { LoadingStyleModules } from 'components/commons/Loading/';
 import FromContainer from './form';
 import ConfirmContainer from './confirm';
 
@@ -42,12 +42,12 @@ const CountContainer: React.FC = () => {
   }, [status, setPostData]);
 
   return (
-    <BaseLayoutStyle>
-      <SectionLayoutStyle title="Contact" text={message}>
-        {isLoading && <LoadingStyle />}
+    <BaseStyleModules.BaseStyle>
+      <SectionStyleModules.SectionStyle title="Contact" text={message}>
+        {isLoading && <LoadingStyleModules.LoadingStyle />}
         {setPostData ? <ConfirmContainer /> : <FromContainer />}
-      </SectionLayoutStyle>
-    </BaseLayoutStyle>
+      </SectionStyleModules.SectionStyle>
+    </BaseStyleModules.BaseStyle>
   );
 };
 

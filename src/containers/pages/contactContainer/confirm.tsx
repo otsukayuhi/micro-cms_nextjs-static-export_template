@@ -6,10 +6,10 @@ import EditIcon from '@material-ui/icons/Edit';
 import ClearIcon from '@material-ui/icons/Clear';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import { useContactActions, useContactState } from 'hooks/store/useContact';
-import { ButtonListStyle } from 'components/commons/layout/buttons/styles';
+import { ButtonListStyleModules } from 'components/layout/ButtonList';
 import { ContactStatus } from 'store/pages/contact/reducers';
 import { Typography } from '@material-ui/core';
-import { VerticalItemsMarginStyle } from 'components/commons/layout/verticalItemsMargin/styles';
+import { VerticalItemsMarginModules } from 'components/layout/VerticalItemsMargin';
 
 const ConfirmContainer: React.FC = () => {
   const { fetchPost, editPostData, contactClear } = useContactActions();
@@ -21,7 +21,7 @@ const ConfirmContainer: React.FC = () => {
 
   return (
     <>
-      <VerticalItemsMarginStyle>
+      <VerticalItemsMarginModules.VerticalItemsMarginStyle>
         <dl>
           <dt>
             <Typography variant="body2" gutterBottom>
@@ -52,8 +52,8 @@ const ConfirmContainer: React.FC = () => {
             <Typography variant="body1">{message}</Typography>
           </dd>
         </dl>
-      </VerticalItemsMarginStyle>
-      <ButtonListStyle>
+      </VerticalItemsMarginModules.VerticalItemsMarginStyle>
+      <ButtonListStyleModules.ButtonListStyle>
         {status === ContactStatus.success ? (
           <>
             <li>
@@ -89,7 +89,7 @@ const ConfirmContainer: React.FC = () => {
             </li>
           </>
         )}
-      </ButtonListStyle>
+      </ButtonListStyleModules.ButtonListStyle>
     </>
   );
 };

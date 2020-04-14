@@ -5,12 +5,8 @@
  */
 
 import React from 'react';
-import { BaseLayoutStyle } from 'components/commons/layout/base/styles';
-import {
-  CoverStyle,
-  MemberSectionStyle,
-  AboutSectionStyle,
-} from 'components/pages/top/styles';
+import { BaseStyle } from 'components/layout/Base/styles';
+import { TopStyleModules } from 'components/pages/Top';
 // import { useTopPageData } from 'hooks/pages/usePageData';
 
 // Container層
@@ -19,11 +15,11 @@ const TopContainer: React.FC = () => {
   // const { title, description } = pageData;
 
   return (
-    <BaseLayoutStyle>
-      <CoverStyle />
-      <AboutSectionStyle />
-      <MemberSectionStyle />
-    </BaseLayoutStyle>
+    <BaseStyle>
+      <TopStyleModules.CoverStyle />
+      <TopStyleModules.AboutSectionStyle />
+      <TopStyleModules.MemberSectionStyle />
+    </BaseStyle>
   );
 };
 

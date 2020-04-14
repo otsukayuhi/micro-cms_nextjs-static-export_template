@@ -1,11 +1,11 @@
 import React from 'react';
 import { NextPage, GetStaticProps } from 'next';
-import HeadComponent, { HeadComponentProps } from 'components/commons/head/dom';
+import { HeadDomModules } from 'components/commons/Head';
 import ContactContainer from 'containers/pages/contactContainer';
 import { getAPI } from 'gateways/getAPI';
 
 type ContactPageProps = {
-  pageData: HeadComponentProps;
+  pageData: HeadDomModules.HeadComponentProps;
   pathname: string;
 };
 
@@ -14,7 +14,7 @@ const Page: NextPage<ContactPageProps> = ({ pageData, pathname }) => {
 
   return (
     <>
-      <HeadComponent
+      <HeadDomModules.HeadComponent
         title={title}
         description={description}
         pathname={pathname}

@@ -9,7 +9,7 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
-import { SectionLayoutStyle } from 'components/commons/layout/section/styles';
+import { SectionStyleModules } from 'components/layout/Section';
 
 export type CoverProps = {
   className?: string;
@@ -35,18 +35,18 @@ export const Cover: React.FC<CoverProps> = ({ className }) => (
 );
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ className }) => (
-  <SectionLayoutStyle title="Web Site / Design & Consulting">
+  <SectionStyleModules.SectionStyle title="Web Site / Design & Consulting">
     <div className={className}>
       <img src="/images/image.jpg" alt="" />
       <Typography className="_text" variant="body1">
         Webサイト制作や、サーバーの設定見直しなどなど、お気軽にご相談ください。
       </Typography>
     </div>
-  </SectionLayoutStyle>
+  </SectionStyleModules.SectionStyle>
 );
 
 export const MemberSection: React.FC<MemberSectionProps> = ({ className }) => (
-  <SectionLayoutStyle title="Member">
+  <SectionStyleModules.SectionStyle title="Member">
     <div className={className}>
       <div className="_header">
         <img className="_img" src="/images/yuhi_logo.png" alt="" />
@@ -72,5 +72,5 @@ export const MemberSection: React.FC<MemberSectionProps> = ({ className }) => (
         </ul>
       </section>
     </div>
-  </SectionLayoutStyle>
+  </SectionStyleModules.SectionStyle>
 );

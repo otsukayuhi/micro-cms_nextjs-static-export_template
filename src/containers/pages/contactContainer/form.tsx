@@ -5,8 +5,8 @@ import Button from '@material-ui/core/Button';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import { PostData } from 'store/pages/contact/reducers';
 import { useContactActions, useContactState } from 'hooks/store/useContact';
-import { ButtonListStyle } from 'components/commons/layout/buttons/styles';
-import { VerticalItemsMarginStyle } from 'components/commons/layout/verticalItemsMargin/styles';
+import { ButtonListStyleModules } from 'components/layout/ButtonList';
+import { VerticalItemsMarginStyle } from 'components/layout/VerticalItemsMargin/styles';
 
 const FormContainer: React.FC = () => {
   const { setPostData } = useContactActions();
@@ -63,7 +63,7 @@ const FormContainer: React.FC = () => {
           rows="4"
         />
       </VerticalItemsMarginStyle>
-      <ButtonListStyle>
+      <ButtonListStyleModules.ButtonListStyle>
         <Button
           type="submit"
           disabled={!!Object.keys(errors).length}
@@ -71,7 +71,7 @@ const FormContainer: React.FC = () => {
         >
           Next
         </Button>
-      </ButtonListStyle>
+      </ButtonListStyleModules.ButtonListStyle>
     </form>
   );
 };

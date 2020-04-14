@@ -1,13 +1,13 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
 
-export type SectionLayoutProps = {
+export type SectionProps = {
   className?: string;
   title: string;
   text?: string;
 };
 
-export const SectionLayout: React.FC<SectionLayoutProps> = ({
+export const Section: React.FC<SectionProps> = ({
   className,
   children,
   title,

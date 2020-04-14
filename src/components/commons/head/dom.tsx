@@ -7,7 +7,7 @@ export type HeadComponentProps = {
   pathname: string;
 };
 
-const HeadComponent: React.FC<HeadComponentProps> = ({
+export const HeadComponent: React.FC<HeadComponentProps> = ({
   title,
   description,
   pathname,
@@ -44,5 +44,3 @@ const HeadComponent: React.FC<HeadComponentProps> = ({
     />
   </Head>
 );
-
-export default HeadComponent;

@@ -6,8 +6,8 @@ import { Provider } from 'react-redux';
 import { Global, css } from '@emotion/core';
 import { configureStore } from 'store';
 import { Color } from 'const/Styles';
-import { NavigationStyle } from 'components/commons/navigation/styles';
-import { FooterStyle } from 'components/commons/footer/styles';
+import { NavigationStyleModules } from 'components/commons/Navigation';
+import { FooterStyleModules } from 'components/commons/Footer';
 import 'ress/dist/ress.min.css';
 
 const store = configureStore();
@@ -56,9 +56,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       />
       <WrapperStyle>
         <Provider store={store}>
-          <NavigationStyle />
+          <NavigationStyleModules.NavigationStyle />
           <Component {...myPageProps} />
-          <FooterStyle />
+          <FooterStyleModules.FooterStyle />
         </Provider>
       </WrapperStyle>
     </>
