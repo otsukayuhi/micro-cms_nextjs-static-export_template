@@ -1,0 +1,1 @@
+export { VerticalItemsMarginStyle } from './styles';

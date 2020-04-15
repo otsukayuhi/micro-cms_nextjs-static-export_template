@@ -1,0 +1,1 @@
+export { LoadingStyle } from './styles';
