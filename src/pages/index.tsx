@@ -1,13 +1,13 @@
 import React, { createContext } from 'react';
 import { NextPage, GetStaticProps } from 'next';
-import TopContainer from 'containers/pages/topContainer';
-import { HeadDomModules } from 'components/commons/Head';
+import { TopContainer } from 'containers/topContainer';
+import { HeadComponent, HeadComponentTypeModules } from 'components/Head';
 import { getAPI } from 'gateways/getAPI';
 
-type TopPageDataContextProps = HeadDomModules.HeadComponentProps;
+type TopPageDataContextProps = HeadComponentTypeModules.HeadComponentProps;
 
 type TopPageProps = {
-  pageData: HeadDomModules.HeadComponentProps;
+  pageData: TopPageDataContextProps;
   pathname: string;
 };
 
@@ -20,7 +20,7 @@ const Page: NextPage<TopPageProps> = ({ pageData, pathname }) => {
 
   return (
     <>
-      <HeadDomModules.HeadComponent
+      <HeadComponent
         title={title}
         description={description}
         pathname={pathname}

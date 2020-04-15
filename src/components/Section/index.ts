@@ -1,0 +1,1 @@
+export { SectionStyle } from './styles';

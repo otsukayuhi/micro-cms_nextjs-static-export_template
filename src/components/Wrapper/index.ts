@@ -1,0 +1,1 @@
+export { WrapperStyle } from './styles';

@@ -1,5 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { contactReducer } from 'store/pages/contact/reducers';
+import { contactReducer } from 'store/contact/reducers';
 
 const rootReducer = combineReducers({
   contact: contactReducer,
