@@ -1,8 +1,13 @@
 import React from 'react';
 import Head from 'next/head';
-import { HeadComponentProps } from './types';
 
-export const HeadComponent: React.FC<HeadComponentProps> = ({
+type Props = {
+  title: string;
+  description: string;
+  pathname: string;
+};
+
+export const HeadComponent: React.FC<Props> = ({
   title,
   description,
   pathname,

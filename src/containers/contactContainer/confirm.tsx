@@ -1,15 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import SendIcon from '@material-ui/icons/Send';
 import EditIcon from '@material-ui/icons/Edit';
 import ClearIcon from '@material-ui/icons/Clear';
+import { contactStatus } from 'store/contact/reducers';
+import { useContactActions, useContactState } from 'hooks/useContact';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import { ButtonListStyle } from 'components/ButtonList';
-import { VerticalItemsMarginStyle } from 'components/VerticalItemsMargin';
-import { ContactStatus } from 'store/contact/reducers';
-import { useContactActions, useContactState } from 'hooks/useContact';
+import { DescriptionList } from 'components/ContactComponents';
 
 export const ConfirmContainer: React.FC = () => {
   const { fetchPost, editPostData, contactClear } = useContactActions();
@@ -19,42 +18,17 @@ export const ConfirmContainer: React.FC = () => {
   const editPost = () => editPostData();
   const fromClear = () => contactClear();
 
+  const descriptionItems = [
+    { definition: 'Name', description: name },
+    { definition: 'Email', description: email },
+    { definition: 'Message', description: message },
+  ];
+
   return (
     <>
-      <VerticalItemsMarginStyle>
-        <dl>
-          <dt>
-            <Typography variant="body2" gutterBottom>
-              Name
-            </Typography>
-          </dt>
-          <dd>
-            <Typography variant="body1">{name}</Typography>
-          </dd>
-        </dl>
-        <dl>
-          <dt>
-            <Typography variant="body2" gutterBottom>
-              E-mail
-            </Typography>
-          </dt>
-          <dd>
-            <Typography variant="body1">{email}</Typography>
-          </dd>
-        </dl>
-        <dl>
-          <dt>
-            <Typography variant="body2" gutterBottom>
-              Message
-            </Typography>
-          </dt>
-          <dd>
-            <Typography variant="body1">{message}</Typography>
-          </dd>
-        </dl>
-      </VerticalItemsMarginStyle>
+      <DescriptionList descriptionItems={descriptionItems} />
       <ButtonListStyle>
-        {status === ContactStatus.success ? (
+        {status === contactStatus.success ? (
           <>
             <li>
               <Button startIcon={<ClearIcon />} onClick={fromClear}>

@@ -14,17 +14,19 @@ export type PostData = {
   message: string;
 };
 
+export const contactStatus = {
+  noFetch: 'no_fetch',
+  success: 'success',
+  failure: 'failure',
+} as const;
+
+export type ContactStatus = typeof contactStatus[keyof typeof contactStatus];
+
 export type InitialContactState = {
   setPostData: boolean;
   isLoading: boolean;
   status: ContactStatus;
 } & PostData;
-
-export enum ContactStatus {
-  noFetch = 'no_fetch',
-  success = 'success',
-  failure = 'failure',
-}
 
 const initialContactState: InitialContactState = {
   name: '',
@@ -32,7 +34,7 @@ const initialContactState: InitialContactState = {
   message: '',
   setPostData: false,
   isLoading: false,
-  status: ContactStatus.noFetch,
+  status: contactStatus.noFetch,
 };
 
 export const contactReducer = (
@@ -50,7 +52,7 @@ export const contactReducer = (
       return {
         ...state,
         setPostData: false,
-        status: ContactStatus.noFetch,
+        status: contactStatus.noFetch,
       };
     case REQUEST_POST:
       return {
@@ -61,13 +63,13 @@ export const contactReducer = (
       return {
         ...state,
         isLoading: false,
-        status: ContactStatus.success,
+        status: contactStatus.success,
       };
     case REQUEST_POST_FAILURE:
       return {
         ...state,
         isLoading: false,
-        status: ContactStatus.failure,
+        status: contactStatus.failure,
       };
     case CONTACT_CLEAR:
       return {
