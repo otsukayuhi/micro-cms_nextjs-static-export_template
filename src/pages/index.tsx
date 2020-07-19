@@ -1,10 +1,13 @@
-import React, { createContext } from 'react';
+import React, { createContext, ComponentProps } from 'react';
 import { NextPage, GetStaticProps } from 'next';
 import { TopContainer } from 'containers/topContainer';
-import { HeadComponent, HeadComponentTypeModules } from 'components/Head';
+import { HeadComponent } from 'components/Head';
 import { getAPI } from 'gateways/getAPI';
 
-type TopPageDataContextProps = HeadComponentTypeModules.HeadComponentProps;
+type TopPageDataContextProps = Pick<
+  ComponentProps<typeof HeadComponent>,
+  'description' | 'title'
+>;
 
 type TopPageProps = {
   pageData: TopPageDataContextProps;

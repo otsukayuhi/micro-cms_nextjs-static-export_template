@@ -2,9 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import Button from '@material-ui/core/Button';
-import { NavigationProps } from './types';
 
-export const Navigation: React.FC<NavigationProps> = ({ className }) => (
+type Props = {
+  className?: string;
+};
+
+export const Navigation: React.FC<Props> = ({ className }) => (
   <nav className={className}>
     <Link href="/">
       <a className="_logo">

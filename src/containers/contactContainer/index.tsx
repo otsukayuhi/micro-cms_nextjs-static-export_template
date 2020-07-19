@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ContactStatus } from 'store/contact/reducers';
+import { contactStatus } from 'store/contact/reducers';
 import { useContactState } from 'hooks/useContact';
 import { BaseLayoutStyle } from 'components/BaseLayout';
 import { SectionStyle } from 'components/Section';
@@ -8,19 +8,18 @@ import { FormContainer } from './form';
 import { ConfirmContainer } from './confirm';
 
 export const CountContainer: React.FC = () => {
-  // const { ContactClear } = useContactActions();
   const contactState = useContactState();
   const { setPostData, isLoading, status } = contactState;
 
   const [message, setMessage] = useState('お気軽にお問い合わせください。');
 
   useEffect(() => {
-    if (status === ContactStatus.success) {
+    if (status === contactStatus.success) {
       setMessage('以下の内容で送信しました。');
       return;
     }
 
-    if (status === ContactStatus.failure) {
+    if (status === contactStatus.failure) {
       setMessage(
         '送信失敗しました。お手数ですが、時間を開けて再度ご送をお願いいたします。',
       );

@@ -10,7 +10,18 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
 import { SectionStyle } from 'components/Section';
-import { CoverProps, AboutSectionProps, MemberSectionProps } from './types';
+
+type CoverProps = {
+  className?: string;
+};
+
+type AboutSectionProps = {
+  className?: string;
+};
+
+type MemberSectionProps = {
+  className?: string;
+};
 
 export const Cover: React.FC<CoverProps> = ({ className }) => (
   <div className={className}>

@@ -1,0 +1,1 @@
+export { MyComponentStyle } from './styles';

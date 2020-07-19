@@ -1,8 +1,13 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import { SectionProps } from './types';
 
-export const Section: React.FC<SectionProps> = ({
+type Props = {
+  className?: string;
+  title: string;
+  text?: string;
+};
+
+export const Section: React.FC<Props> = ({
   className,
   children,
   title,

@@ -1,11 +1,14 @@
 import React from 'react';
 import { NextPage, GetStaticProps } from 'next';
-import { HeadComponent, HeadComponentTypeModules } from 'components/Head';
+import { HeadComponent } from 'components/Head';
 import { CountContainer } from 'containers/contactContainer';
 import { getAPI } from 'gateways/getAPI';
 
 type ContactPageProps = {
-  pageData: HeadComponentTypeModules.HeadComponentProps;
+  pageData: Pick<
+    React.ComponentProps<typeof HeadComponent>,
+    'title' | 'description'
+  >;
   pathname: string;
 };
 
