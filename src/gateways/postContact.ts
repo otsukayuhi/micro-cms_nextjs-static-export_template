@@ -6,7 +6,7 @@ export const postContact = async (contactData: InitialContactState) => {
   const { name, email, message } = contactData;
   const postData = `${name} 様より\n\n${message}\n\nemail: ${email}`;
 
-  // デバッグ用;
+  // デバッグ用
   if (process.env.NODE_ENV !== 'production') {
     console.log('Contact debug mode');
     return await new Promise((_resolve, _reject) => {
