@@ -10,6 +10,7 @@ module.exports = () => {
       MAIL_KEY: process.env.MAIL_KEY,
       MY_MAIL: process.env.MY_MAIL,
       API_URL: process.env.API_URL,
+      LINE_NOTIFY: process.env.LINE_NOTIFY,
     },
     webpack: config => {
       /**
